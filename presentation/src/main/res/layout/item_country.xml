@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.brothersoft.bookofcountries.presentation.screens.country.list.items.country.CountryItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="3dp"
+        android:background="@drawable/orange_effect_border">
+
+        <ImageView
+            android:id="@+id/card_flag_view"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:imageUrl="@{viewModel.flag}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                style="@style/BaseCapitalTextViewStyle"
+                android:id="@+id/card_country_name"
+                android:text="@{viewModel.name}" />
+
+            <TextView
+                style="@style/BaseCapitalTextViewStyle"
+                android:id="@+id/card_country_capital"
+                android:text="@{viewModel.capital}" />
+
+            <TextView
+                style="@style/BaseCapitalTextViewStyle"
+                android:id="@+id/card_subregion"
+                android:text="@{viewModel.region}" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

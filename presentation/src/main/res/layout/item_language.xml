@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.brothersoft.bookofcountries.presentation.screens.country.single.items.language.LanguageItemViewModel" />
+    </data>
+
+    <TextView
+        android:id="@+id/language_name"
+        style="@style/BorderItemStyle"
+        android:text="@{viewModel.languageName}"
+        />
+</layout>

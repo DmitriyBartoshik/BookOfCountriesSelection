@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Book of countries</string>
+    <string name="error_internet_not_available">Интернет не доступен</string>
+    <string name="error_server_not_available">Сервер не доступен</string>
+    <string name="error_server">Серверная ошибка</string>
+    <string name="error">Непредвиденная ошибка</string>
+    <string name="capital">Capital:</string>
+    <string name="region">Region:</string>
+    <string name="language">Language:</string>
+    <string name="currency">Currency:</string>
+    <string name="block">Block:</string>
+    <string name="population">Population:</string>
+    <string name="area">Area:</string>
+    <string name="calling_code">Calling code:</string>
+    <string name="domain">Domain:</string>
+    <string name="alpha2code">Alpha-2 code:</string>
+    <string name="alpha3code">Alpha-3 code:</string>
+    <string name="time_zone">Time zone:</string>
+    <string name="humidity">humidity</string>
+    <string name="wind_speed">wind speed</string>
+    <string name="pressure">pressure</string>
+    <string name="sunset">sunset</string>
+    <string name="sunrise">sunrise</string>
+</resources>

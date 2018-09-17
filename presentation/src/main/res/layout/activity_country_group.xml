@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.brothersoft.bookofcountries.presentation.screens.country.group.CountryGroupViewModel" />
+    </data>
+
+
+    <LinearLayout
+        style="@style/CountryGroupLayoutStyle"
+        android:background="@drawable/yelow_effect">
+
+        <LinearLayout
+            android:id="@+id/header_country_group"
+            style="@style/CountryGroupLayoutStyle"
+
+            android:background="@drawable/orange_effect_border">
+
+            <TextView
+                style="@style/CountryGroupTextViewStyle"
+                android:text="@{viewModel.field}"
+                android:textColor="#111211" />
+
+            <TextView
+                style="@style/CountryGroupTextViewStyle"
+                android:text="@{viewModel.fieldValue}"
+                android:textColor="#111211" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/country_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/yelow_effect" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.brothersoft.bookofcountries.presentation.screens.country.single.CountryViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/green_effect">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/country_name"
+                    style="@style/ItemStyle"
+                    android:layout_gravity="center"
+                    android:text="@{viewModel.name}"
+                    android:textSize="40sp" />
+
+                <ImageView
+                    android:id="@+id/country_flag"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    app:imageUrl="@{viewModel.flag}" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    style="@style/CountryActivityLayoutStyle"
+                    android:onClick="@{()->viewModel.goToCapital()}">
+
+                    <TextView
+                        android:id="@+id/text_capital"
+                        style="@style/CountryActivityTextViewStyle"
+                        android:text="@string/capital" />
+
+                    <TextView
+                        android:id="@+id/country_capital"
+                        style="@style/BorderItemStyle"
+                        android:text="@{viewModel.capital}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/CountryActivityLayoutStyle"
+                    android:onClick="@{()->viewModel.goToRegionsCountries()}">
+
+                    <TextView
+                        android:id="@+id/text_region"
+                        style="@style/CountryActivityTextViewStyle"
+                        android:text="@string/region" />
+
+                    <TextView
+                        android:id="@+id/country_region"
+                        style="@style/BorderItemStyle"
+                        android:text="@{viewModel.region}" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/CountryActivityLayoutStyle">
+
+                    <TextView
+                        android:id="@+id/text_language"
+                        style="@style/CountryActivityTextViewStyle"
+                        android:text="@string/language" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/country_languages"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/CountryActivityLayoutStyle">
+
+                    <TextView
+                        android:id="@+id/text_currency"
+                        style="@style/CountryActivityTextViewStyle"
+                        android:text="@string/currency" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/country_currencies"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/CountryActivityLayoutStyle">
+
+                    <TextView
+                        android:id="@+id/text_block"
+                        style="@style/CountryActivityTextViewStyle"
+                        android:text="@string/block" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/country_blocks"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/CountryActivityLayoutStyle">
+
+                    <TextView
+                        android:id="@+id/text_population"
+                        style="@style/CountryActivityTextViewStyle"
+                        android:text="@string/population" />
+
+                    <TextView
+                        android:id="@+id/country_population"
+                        style="@style/ItemStyle"
+                        android:text="@{viewModel.population}" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/CountryActivityLayoutStyle">
+
+                    <TextView
+                        android:id="@+id/text_area"
+                        style="@style/CountryActivityTextViewStyle"
+                        android:text="@string/area" />
+
+                    <TextView
+                        android:id="@+id/country_area"
+                        style="@style/ItemStyle"
+                        android:text="@{viewModel.area}" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/CountryActivityLayoutStyle">
+
+                    <TextView
+                        android:id="@+id/text_calling_code"
+                        style="@style/CountryActivityTextViewStyle"
+                        android:text="@string/calling_code" />
+
+                    <TextView
+                        android:id="@+id/country_calling_code"
+                        style="@style/ItemStyle"
+                        android:text="@{viewModel.callingCode}" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/CountryActivityLayoutStyle">
+
+                    <TextView
+                        android:id="@+id/text_domain"
+                        style="@style/CountryActivityTextViewStyle"
+                        android:text="@string/domain" />
+
+                    <TextView
+                        android:id="@+id/country_domain"
+                        style="@style/ItemStyle"
+                        android:text="@{viewModel.domain}" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/CountryActivityLayoutStyle">
+
+                    <TextView
+                        android:id="@+id/text_time_alpha2_code"
+                        style="@style/CountryActivityTextViewStyle"
+                        android:text="@string/alpha2code" />
+
+                    <TextView
+                        android:id="@+id/country_alpha2code"
+                        style="@style/ItemStyle"
+                        android:text="@{viewModel.alpha2Code}" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/CountryActivityLayoutStyle">
+
+                    <TextView
+                        android:id="@+id/text_alpha3_code"
+                        style="@style/CountryActivityTextViewStyle"
+                        android:text="@string/alpha3code" />
+
+                    <TextView
+                        android:id="@+id/country_alpha3code"
+                        style="@style/ItemStyle"
+                        android:text="@{viewModel.alpha3Code}" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/CountryActivityLayoutStyle">
+
+                    <TextView
+                        android:id="@+id/text_time_zone"
+                        style="@style/CountryActivityTextViewStyle"
+                        android:text="@string/time_zone" />
+
+                    <TextView
+                        android:id="@+id/country_time_zones"
+                        style="@style/ItemStyle"
+                        android:text="@{viewModel.timeZone}" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

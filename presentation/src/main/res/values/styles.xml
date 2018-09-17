@@ -1,0 +1,98 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:fontFamily">@font/bradobrei</item>
+    </style>
+
+    <!-- toolbar style -->
+    <style name="Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@drawable/green_effect</item>
+    </style>
+
+    <!-- activity_country styles -->
+    <style name="CountryActivityLayoutStyle" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="CountryActivityTextViewStyle" parent="AppTheme">
+        <item name="android:layout_width">170dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
+    <!-- item_activities  styles -->
+    <style name="BaseItemStyle" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+    </style>
+
+    <style name="ItemStyle" parent="BaseItemStyle">
+        <item name="android:background">@drawable/green_effect</item>
+    </style>
+
+    <style name="BorderItemStyle" parent="BaseItemStyle">
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:background">@drawable/green_effect_border</item>
+    </style>
+
+
+    <!-- activity_capital.xml style -->
+    <style name="TableRawLayoutStyle" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/yelow_effect</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="TableRowImageStyle">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="BaseCapitalTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">#111211</item>
+    </style>
+
+    <style name="TableRowTextViewStyle" parent="BaseCapitalTextViewStyle">
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <!-- activity_country_group style-->
+    <style name="CountryGroupLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="CountryGroupTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">40sp</item>
+    </style>
+</resources>
+
