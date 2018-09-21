@@ -3,6 +3,9 @@ package com.brothersoft.data.net.country;
 import com.brothersoft.data.entity.responses.HttpError;
 import com.brothersoft.data.entity.responses.country.CountryResponse;
 import com.brothersoft.data.net.ErrorParserTransformer;
+import com.brothersoft.domain.entity.DomainModel;
+import com.brothersoft.domain.entity.country.Language;
+import com.brothersoft.domain.entity.country.LanguageList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -71,5 +74,11 @@ public class RestService {
         return restApi
                 .getCountry(alpha3Code)
                 .compose(errorParserTransformer.<CountryResponse, HttpError>parseHttpError());
+    }
+
+    public Observable<List<LanguageList>> getAllFieldByType(String field) {
+        return restApi
+                .getAllFieldByType(field);
+//                .compose(errorParserTransformer.<List<List<Language>>, HttpError>parseHttpError());
     }
 }

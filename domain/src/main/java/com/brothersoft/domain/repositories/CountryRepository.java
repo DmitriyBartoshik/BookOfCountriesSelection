@@ -1,6 +1,9 @@
 package com.brothersoft.domain.repositories;
 
+import com.brothersoft.domain.entity.DomainModel;
 import com.brothersoft.domain.entity.country.Country;
+import com.brothersoft.domain.entity.country.Language;
+import com.brothersoft.domain.entity.country.LanguageList;
 
 
 import java.util.List;
@@ -14,4 +17,6 @@ public interface CountryRepository {
     Observable<List<Country>> getCountryGroupList(String field, String fieldValue);
 
     Observable<Country> getCountry(String alpha3Code);
+
+    Observable<List<LanguageList>> getAllFieldByType(String field);
 }

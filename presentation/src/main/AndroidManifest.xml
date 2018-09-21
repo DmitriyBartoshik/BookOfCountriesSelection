@@ -12,16 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.screens.country.list.CountryListActivity">
+        <activity android:name=".presentation.screens.country.list.CountryListActivity" />
+        <activity android:name=".presentation.screens.country.single.CountryActivity" />
+        <activity android:name=".presentation.screens.country.group.CountryGroupActivity" />
+        <activity android:name=".presentation.screens.country.capital.CapitalActivity" />
+        <activity android:name=".presentation.screens.selection.SelectionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.screens.country.single.CountryActivity" />
-        <activity android:name=".presentation.screens.country.group.CountryGroupActivity"/>
-        <activity android:name=".presentation.screens.country.capital.CapitalActivity"/>
+        <activity android:name=".presentation.screens.selection.RegionListActivity" />
+        <activity android:name=".presentation.screens.selection.LanguageListActivity"></activity>
     </application>
 
 </manifest>

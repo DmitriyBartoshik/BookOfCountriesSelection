@@ -5,6 +5,7 @@ import com.brothersoft.bookofcountries.presentation.screens.country.capital.Capi
 import com.brothersoft.bookofcountries.presentation.screens.country.group.CountryGroupViewModel;
 import com.brothersoft.bookofcountries.presentation.screens.country.list.CountryListViewModel;
 import com.brothersoft.bookofcountries.presentation.screens.country.single.CountryViewModel;
+import com.brothersoft.bookofcountries.presentation.screens.selection.LanguageListActivity;
 
 import javax.inject.Singleton;
 
@@ -17,4 +18,5 @@ public interface AppComponent {
     void runInject(CountryViewModel countryViewModel);
     void runInject(CountryGroupViewModel countryGroupViewModel);
     void runInject(CapitalViewModel capitalViewModel);
+    void runInject(LanguageListActivity languageListActivity);
 }

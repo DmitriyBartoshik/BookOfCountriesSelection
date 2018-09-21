@@ -1,12 +1,16 @@
 package com.brothersoft.data.net.country;
 
 import com.brothersoft.data.entity.responses.country.CountryResponse;
+import com.brothersoft.domain.entity.DomainModel;
+import com.brothersoft.domain.entity.country.Language;
+import com.brothersoft.domain.entity.country.LanguageList;
 
 import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface RestApi {
 
@@ -18,4 +22,7 @@ public interface RestApi {
 
     @GET("alpha/{alpha3Code}")
     Observable<CountryResponse> getCountry(@Path("alpha3Code") String name);
+
+    @GET("all")
+    Observable<List<LanguageList>>getAllFieldByType(@Query("fields") String fields);
 }
