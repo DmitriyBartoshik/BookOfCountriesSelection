@@ -14,19 +14,19 @@ import javax.inject.Inject;
 
 import io.reactivex.Observable;
 
-public class GetAllFieldByTypeUseCase  extends BaseUseCase {
+public class GetLanguagesUseCase extends BaseUseCase {
     private CountryRepository countryRepository;
 
     @Inject
-    public GetAllFieldByTypeUseCase(CountryRepository countryRepository,
-                                  PostExecutionThread postExecutionThread) {
+    public GetLanguagesUseCase(CountryRepository countryRepository,
+                               PostExecutionThread postExecutionThread) {
         super(postExecutionThread);
         this.countryRepository=countryRepository;
 
     }
-    public Observable<List<LanguageList>> getAllFieldByType(String field) {
+    public Observable<List<LanguageList>> getLanguages(String field) {
         return countryRepository
-                .getAllFieldByType(field)
+                .getLanguages(field)
                 .subscribeOn(executionThread)
                 .observeOn(postExecutionThread);
     }

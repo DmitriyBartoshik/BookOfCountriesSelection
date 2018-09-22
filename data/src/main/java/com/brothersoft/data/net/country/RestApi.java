@@ -2,8 +2,10 @@ package com.brothersoft.data.net.country;
 
 import com.brothersoft.data.entity.responses.country.CountryResponse;
 import com.brothersoft.domain.entity.DomainModel;
+import com.brothersoft.domain.entity.country.CurrencyList;
 import com.brothersoft.domain.entity.country.Language;
 import com.brothersoft.domain.entity.country.LanguageList;
+import com.brothersoft.domain.entity.country.RegionalBlockList;
 
 import java.util.List;
 
@@ -24,5 +26,11 @@ public interface RestApi {
     Observable<CountryResponse> getCountry(@Path("alpha3Code") String name);
 
     @GET("all")
-    Observable<List<LanguageList>>getAllFieldByType(@Query("fields") String fields);
+    Observable<List<LanguageList>> getLanguages(@Query("fields") String fields);
+
+    @GET("all")
+    Observable<List<CurrencyList>> getCurrencies(@Query("fields") String fields);
+
+    @GET("all")
+    Observable<List<RegionalBlockList>> getRegionalBlocks(@Query("fields") String fields);
 }

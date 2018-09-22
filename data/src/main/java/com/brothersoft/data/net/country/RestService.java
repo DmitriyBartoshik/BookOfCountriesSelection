@@ -4,8 +4,10 @@ import com.brothersoft.data.entity.responses.HttpError;
 import com.brothersoft.data.entity.responses.country.CountryResponse;
 import com.brothersoft.data.net.ErrorParserTransformer;
 import com.brothersoft.domain.entity.DomainModel;
+import com.brothersoft.domain.entity.country.CurrencyList;
 import com.brothersoft.domain.entity.country.Language;
 import com.brothersoft.domain.entity.country.LanguageList;
+import com.brothersoft.domain.entity.country.RegionalBlockList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -76,9 +78,20 @@ public class RestService {
                 .compose(errorParserTransformer.<CountryResponse, HttpError>parseHttpError());
     }
 
-    public Observable<List<LanguageList>> getAllFieldByType(String field) {
+    public Observable<List<LanguageList>> getLanguages(String field) {
         return restApi
-                .getAllFieldByType(field);
-//                .compose(errorParserTransformer.<List<List<Language>>, HttpError>parseHttpError());
+                .getLanguages(field)
+                .compose(errorParserTransformer.<List<LanguageList>, HttpError>parseHttpError());
+    }
+
+    public Observable<List<CurrencyList>> getCurrencies(String field) {
+        return restApi
+                .getCurrencies(field)
+                .compose(errorParserTransformer.<List<CurrencyList>, HttpError>parseHttpError());
+    }
+    public Observable<List<RegionalBlockList>> getRegionalBlocks(String field) {
+        return restApi
+                .getRegionalBlocks(field)
+                .compose(errorParserTransformer.<List<RegionalBlockList>, HttpError>parseHttpError());
     }
 }

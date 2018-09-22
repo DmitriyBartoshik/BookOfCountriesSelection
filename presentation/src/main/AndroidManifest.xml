@@ -24,7 +24,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.screens.selection.RegionListActivity" />
-        <activity android:name=".presentation.screens.selection.LanguageListActivity"></activity>
+        <activity android:name=".presentation.screens.selection.LanguageListActivity" />
+        <activity android:name=".presentation.screens.selection.CurrencyListActivity" />
+        <activity android:name=".presentation.screens.selection.RegionalBlockActivity"></activity>
     </application>
 
 </manifest>

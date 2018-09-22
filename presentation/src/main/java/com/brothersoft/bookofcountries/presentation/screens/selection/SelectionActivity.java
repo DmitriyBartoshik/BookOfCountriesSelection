@@ -30,31 +30,45 @@ public class SelectionActivity extends AppCompatActivity {
 
     public void buttonInit() {
         fullList = (Button) findViewById(R.id.full_list_button);
-        region=(Button) findViewById(R.id.region_button);
-        language=(Button)findViewById(R.id.language_button);
-        currency=(Button)findViewById(R.id.currency_button);
-        block=(Button)findViewById(R.id.regional_block_button);
+        region = (Button) findViewById(R.id.region_button);
+        language = (Button) findViewById(R.id.language_button);
+        currency = (Button) findViewById(R.id.currency_button);
+        block = (Button) findViewById(R.id.regional_block_button);
     }
 
-    public void setButtonOnclickListener(){
+    public void setButtonOnclickListener() {
         fullList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), CountryListActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CountryListActivity.class);
                 startActivity(intent);
             }
         });
         region.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), RegionListActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RegionListActivity.class);
                 startActivity(intent);
             }
         });
         language.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), LanguageListActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LanguageListActivity.class);
+                startActivity(intent);
+            }
+        });
+        currency.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CurrencyListActivity.class);
+                startActivity(intent);
+            }
+        });
+        block.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RegionalBlockActivity.class);
                 startActivity(intent);
             }
         });

@@ -9,9 +9,11 @@ import com.brothersoft.data.net.country.RestService;
 import com.brothersoft.domain.entity.DomainModel;
 import com.brothersoft.domain.entity.country.Country;
 import com.brothersoft.domain.entity.country.Currency;
+import com.brothersoft.domain.entity.country.CurrencyList;
 import com.brothersoft.domain.entity.country.Language;
 import com.brothersoft.domain.entity.country.LanguageList;
 import com.brothersoft.domain.entity.country.RegionalBlock;
+import com.brothersoft.domain.entity.country.RegionalBlockList;
 import com.brothersoft.domain.entity.country.Translation;
 import com.brothersoft.domain.repositories.CountryRepository;
 
@@ -79,8 +81,16 @@ public class CountryRepositoryImpl implements CountryRepository {
     }
 
     @Override
-    public Observable<List<LanguageList>> getAllFieldByType(String field) {
-        return restService.getAllFieldByType(field);
+    public Observable<List<LanguageList>> getLanguages(String field) {
+        return restService.getLanguages(field);
+    }
+    @Override
+    public Observable<List<CurrencyList>> getCurrencies(String field) {
+        return restService.getCurrencies(field);
+    }
+    @Override
+    public Observable<List<RegionalBlockList>>getRegionalBlocks(String field){
+        return  restService.getRegionalBlocks(field);
     }
 
     public Country getCountry(CountryResponse countryResponse) {
