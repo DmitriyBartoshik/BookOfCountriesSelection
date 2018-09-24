@@ -76,14 +76,19 @@ public class RegionalBlockActivity extends AppCompatActivity implements OnItemCl
     }
 
     public void getRegionalBlocksName(List<RegionalBlockList> regionalBlockList) {
-        Set<String[]> blocksSet = new HashSet();
+        Set<RegionalBlock> blocksSet = new TreeSet();
         for (RegionalBlockList blocks : regionalBlockList) {
             for (RegionalBlock regionalBlock : blocks.getRegionalBlocs()) {
-                String[] blockInfo = {regionalBlock.getName(),regionalBlock.getAcronym()};
-                blocksSet.add(blockInfo);
+                if (regionalBlock.getName() != null) {
+                    blocksSet.add(regionalBlock);
+                }
+
             }
         }
-        this.blocks.addAll(blocksSet);
+        for (RegionalBlock regionalBlock : blocksSet) {
+            String[] blockInfo = {regionalBlock.getName(), regionalBlock.getAcronym()};
+            this.blocks.add(blockInfo);
+        }
     }
 
     public void setLanguageRecycler() {
@@ -96,7 +101,7 @@ public class RegionalBlockActivity extends AppCompatActivity implements OnItemCl
 
     @Override
     public void onItemClick(int position) {
-        String block = blocks.get(position)[0];
+        String block = blocks.get(position)[1];
         Intent intent = CountryGroupActivity.getIntent(this,
                 "regionalbloc", block);
         startActivity(intent);

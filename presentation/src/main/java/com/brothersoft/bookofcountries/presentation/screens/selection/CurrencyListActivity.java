@@ -15,12 +15,9 @@ import com.brothersoft.bookofcountries.presentation.screens.selection.adapter.On
 import com.brothersoft.domain.entity.country.Currency;
 import com.brothersoft.domain.entity.country.CurrencyList;
 import com.brothersoft.domain.usecases.country.GetCurrenciesUseCase;
-import com.brothersoft.domain.usecases.country.GetLanguagesUseCase;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.TreeSet;
 
 import javax.inject.Inject;
@@ -75,14 +72,18 @@ public class CurrencyListActivity extends AppCompatActivity implements OnItemCli
     }
 
     public void getCurrenciesName(List<CurrencyList> currencyList) {
-        Set<String[]> languagesSet = new HashSet();
+        TreeSet<Currency> currenciesSet = new TreeSet();
         for (CurrencyList currencies : currencyList) {
             for (Currency currency : currencies.getCurrencies()) {
-                String[] currencyInfo = {currency.getName(), currency.getCode()};
-                languagesSet.add(currencyInfo);
+                if (currency.getName() != null) {
+                    currenciesSet.add(currency);
+                }
             }
         }
-        this.currencies.addAll(languagesSet);
+        for (Currency currency : currenciesSet) {
+            String[] currencyInfo = {currency.getName(), currency.getCode()};
+            this.currencies.add(currencyInfo);
+        }
     }
 
     public void setCurrencyRecycler() {

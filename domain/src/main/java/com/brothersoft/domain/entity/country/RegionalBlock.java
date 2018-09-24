@@ -4,7 +4,7 @@ import com.brothersoft.domain.entity.DomainModel;
 
 import java.util.List;
 
-public class RegionalBlock implements DomainModel {
+public class RegionalBlock implements DomainModel, Comparable<RegionalBlock> {
     private String acronym;
     private String name;
     private List<String> otherAcronyms;
@@ -40,5 +40,10 @@ public class RegionalBlock implements DomainModel {
 
     public void setOtherNames(List<String> otherNames) {
         this.otherNames = otherNames;
+    }
+
+    @Override
+    public int compareTo(RegionalBlock regionalBlock) {
+        return name.compareTo(regionalBlock.getName());
     }
 }

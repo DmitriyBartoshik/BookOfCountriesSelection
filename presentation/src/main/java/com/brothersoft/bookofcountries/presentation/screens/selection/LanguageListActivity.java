@@ -18,6 +18,8 @@ import com.brothersoft.domain.usecases.country.GetLanguagesUseCase;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.inject.Inject;
 
@@ -68,14 +70,18 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
     }
 
     public void getLanguagesName(List<LanguageList> listLanguages) {
-        HashSet<String []> languagesSet=new HashSet();
+        Set<Language> languagesSet = new TreeSet();
         for (LanguageList languages : listLanguages) {
-            for (Language language : languages.getLanguages()){
-                String[] languageInfo={language.getName(),language.getIso639_1()};
-                languagesSet.add(languageInfo);
+            for (Language language : languages.getLanguages()) {
+                if (language.getName() != null) {
+                    languagesSet.add(language);
+                }
             }
         }
-        this.languages.addAll(languagesSet);
+        for (Language language : languagesSet) {
+            String[] languageInfo = {language.getName(), language.getIso639_1()};
+            this.languages.add(languageInfo);
+        }
     }
 
     public void setLanguageRecycler() {
@@ -88,7 +94,7 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
 
     @Override
     public void onItemClick(int position) {
-     String language= languages.get(position)[1];
+        String language = languages.get(position)[1];
         Intent intent = CountryGroupActivity.getIntent(this,
                 "lang", language);
         startActivity(intent);

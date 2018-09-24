@@ -2,7 +2,7 @@ package com.brothersoft.domain.entity.country;
 
 import com.brothersoft.domain.entity.DomainModel;
 
-public class Language implements DomainModel {
+public class Language implements DomainModel,Comparable<Language> {
     private String iso639_1;
     private String iso639_2;
     private String name;
@@ -38,5 +38,10 @@ public class Language implements DomainModel {
 
     public void setNativeName(String nativeName) {
         this.nativeName = nativeName;
+    }
+
+    @Override
+    public int compareTo(Language language) {
+        return name.compareTo(language.getName());
     }
 }
