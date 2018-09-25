@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.brothersoft.bookofcountries.R;
 import com.brothersoft.bookofcountries.app.App;
@@ -40,8 +41,9 @@ public class RegionalBlockActivity extends AppCompatActivity implements OnItemCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_regional_block);
+        setContentView(R.layout.activity_type_group_list);
         runInject();
+        setText();
         getRegionalBlockList();
     }
 
@@ -92,7 +94,7 @@ public class RegionalBlockActivity extends AppCompatActivity implements OnItemCl
     }
 
     public void setLanguageRecycler() {
-        recyclerView = findViewById(R.id.regional_block_list);
+        recyclerView = findViewById(R.id.group_List);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new FieldTypeAdapter(this, this.blocks);
         adapter.setOnClickListener(this);
@@ -105,6 +107,10 @@ public class RegionalBlockActivity extends AppCompatActivity implements OnItemCl
         Intent intent = CountryGroupActivity.getIntent(this,
                 "regionalbloc", block);
         startActivity(intent);
+    }
+    public void setText(){
+        TextView textView=(TextView)findViewById(R.id.text_header_group_type_list);
+        textView.setText("Regional blocs");
     }
 }
 

@@ -25,7 +25,8 @@
         android:layout_marginTop="100dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/green_effect_border"
-        android:textSize="20dp"
+        android:textSize="20sp"
+        android:fontFamily="@font/bradobrei"
         android:text="Full list"/>
     <Button
         android:id="@+id/region_button"

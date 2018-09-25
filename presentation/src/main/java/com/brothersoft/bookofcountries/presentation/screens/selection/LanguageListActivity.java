@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import com.brothersoft.bookofcountries.R;
 import com.brothersoft.bookofcountries.app.App;
@@ -36,8 +37,9 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_language_list);
+        setContentView(R.layout.activity_type_group_list);
         runInject();
+        setText();
         getLanguageList();
     }
 
@@ -85,7 +87,7 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
     }
 
     public void setLanguageRecycler() {
-        recyclerView = findViewById(R.id.languageList);
+        recyclerView = findViewById(R.id.group_List);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new FieldTypeAdapter(this, this.languages);
         adapter.setOnClickListener(this);
@@ -98,5 +100,9 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
         Intent intent = CountryGroupActivity.getIntent(this,
                 "lang", language);
         startActivity(intent);
+    }
+    public void setText(){
+        TextView textView=(TextView)findViewById(R.id.text_header_group_type_list);
+        textView.setText("Languages");
     }
 }

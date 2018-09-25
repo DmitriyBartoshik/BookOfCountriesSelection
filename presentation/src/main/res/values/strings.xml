@@ -21,4 +21,5 @@
     <string name="pressure">pressure</string>
     <string name="sunset">sunset</string>
     <string name="sunrise">sunrise</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

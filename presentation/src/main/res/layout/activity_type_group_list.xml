@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+  >
+    <LinearLayout
+        android:id="@+id/header_group_type_list"
+        style="@style/CountryGroupLayoutStyle"
+        android:background="@drawable/orange_effect_border">
+        <TextView
+            android:id="@+id/text_header_group_type_list"
+            style="@style/CountryGroupTextViewStyle"
+            android:gravity="center"
+            android:textColor="#111211" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/group_List"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/red_effect_border"/>
+</LinearLayout>

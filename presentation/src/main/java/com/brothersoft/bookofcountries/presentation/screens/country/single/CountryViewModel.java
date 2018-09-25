@@ -181,4 +181,7 @@ public class CountryViewModel extends BaseViewModel<CountryRouter> {
         String cap = capital.get();
         router.goToCapital(cap);
     }
+    public void goToMap(){
+        router.goToMap();
+    }
 }
