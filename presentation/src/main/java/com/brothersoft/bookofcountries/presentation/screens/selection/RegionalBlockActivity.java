@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.brothersoft.bookofcountries.R;
@@ -35,6 +37,8 @@ public class RegionalBlockActivity extends AppCompatActivity implements OnItemCl
     private List<String[]> blocks = new ArrayList<>();
     private RecyclerView recyclerView;
     private FieldTypeAdapter adapter;
+    ProgressBar progressBar;
+
     @Inject
     GetBlocksUseCase blocksUseCase;
 
@@ -42,6 +46,7 @@ public class RegionalBlockActivity extends AppCompatActivity implements OnItemCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_type_group_list);
+        progressBar=(ProgressBar)findViewById(R.id.progress_bar) ;
         runInject();
         setText();
         getRegionalBlockList();
@@ -63,6 +68,7 @@ public class RegionalBlockActivity extends AppCompatActivity implements OnItemCl
                     public void onNext(List<RegionalBlockList> regionalBlockList) {
                         getRegionalBlocksName(regionalBlockList);
                         setLanguageRecycler();
+                        progressBar.setVisibility(View.INVISIBLE);
                     }
 
                     @Override
@@ -103,13 +109,16 @@ public class RegionalBlockActivity extends AppCompatActivity implements OnItemCl
 
     @Override
     public void onItemClick(int position) {
-        String block = blocks.get(position)[1];
+        String blocCode = blocks.get(position)[1];
+        String blocName = blocks.get(position)[0];
+
         Intent intent = CountryGroupActivity.getIntent(this,
-                "regionalbloc", block);
+                "regionalbloc", blocCode, blocName);
         startActivity(intent);
     }
-    public void setText(){
-        TextView textView=(TextView)findViewById(R.id.text_header_group_type_list);
+
+    public void setText() {
+        TextView textView = (TextView) findViewById(R.id.text_header_group_type_list);
         textView.setText("Regional blocs");
     }
 }

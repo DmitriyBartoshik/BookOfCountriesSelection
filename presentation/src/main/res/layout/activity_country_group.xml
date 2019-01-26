@@ -8,32 +8,45 @@
             type="com.brothersoft.bookofcountries.presentation.screens.country.group.CountryGroupViewModel" />
     </data>
 
-
-    <LinearLayout
-        style="@style/CountryGroupLayoutStyle"
-        android:background="@drawable/yelow_effect">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/header_country_group"
-            style="@style/CountryGroupLayoutStyle"
-
-            android:background="@drawable/orange_effect_border">
-
-            <TextView
-                style="@style/CountryGroupTextViewStyle"
-                android:text="@{viewModel.field}"
-                android:textColor="#111211" />
-
-            <TextView
-                style="@style/CountryGroupTextViewStyle"
-                android:text="@{viewModel.fieldValue}"
-                android:textColor="#111211" />
-        </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/country_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/yelow_effect" />
-    </LinearLayout>
+            android:background="@drawable/blue_effect"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/header_country_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/blue_effect"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/BottomCountryGroupTextViewStyle"
+                    android:gravity="center"
+                    android:text="@{viewModel.fieldValue}" />
+
+                <TextView
+                    style="@style/TopCountryGroupTextViewStyle"
+                    android:gravity="center"
+                    android:text="@{viewModel.field}" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/country_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.progressBar}" />
+    </FrameLayout>
 </layout>

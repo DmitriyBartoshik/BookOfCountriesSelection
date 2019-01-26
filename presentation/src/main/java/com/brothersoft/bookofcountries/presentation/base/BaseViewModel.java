@@ -1,12 +1,17 @@
 package com.brothersoft.bookofcountries.presentation.base;
 
 import android.arch.lifecycle.ViewModel;
+import android.databinding.ObservableBoolean;
+
+import com.brothersoft.domain.entity.DomainModel;
 
 import io.reactivex.disposables.CompositeDisposable;
 
-public abstract class BaseViewModel<R extends BaseRouter> extends ViewModel {
+public abstract class BaseViewModel<R extends BaseRouter,T extends DomainModel> extends ViewModel {
 
     private CompositeDisposable compositeDisposable;
+    public ObservableBoolean progressBar = new ObservableBoolean(true);
+
 
     protected R router;
 
@@ -45,5 +50,12 @@ public abstract class BaseViewModel<R extends BaseRouter> extends ViewModel {
                 && !compositeDisposable.isDisposed()) {
             compositeDisposable.dispose();
         }
+    }
+    public void showProgressBar() {
+        progressBar.set(true);
+    }
+
+    public void hideProgressBar() {
+        progressBar.set(false);
     }
 }

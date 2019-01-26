@@ -4,64 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/blue_effect_border"
     android:orientation="vertical"
     tools:context="com.brothersoft.bookofcountries.presentation.screens.selection.SelectionActivity">
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar1"
+        style="@style/Toolbar"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar1"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            style="@style/Toolbar"/>
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="Book of countries"
+            android:textColor="#111211"
+            android:textSize="20sp" />
+    </android.support.v7.widget.Toolbar>
 
-    </android.support.design.widget.AppBarLayout>
+
     <Button
         android:id="@+id/full_list_button"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        style="@style/SelectionButtonStyle"
         android:layout_marginTop="100dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/green_effect_border"
-        android:textSize="20sp"
-        android:fontFamily="@font/bradobrei"
-        android:text="Full list"/>
+        android:text="@string/full_list_select" />
+
     <Button
         android:id="@+id/region_button"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/green_effect_border"
-        android:textSize="20dp"
-        android:text="Region"/>
+        style="@style/SelectionButtonStyle"
+        android:text="@string/region_select" />
+
     <Button
         android:id="@+id/language_button"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/green_effect_border"
-        android:textSize="20dp"
-        android:text="Language"/>
+        style="@style/SelectionButtonStyle"
+        android:text="@string/language_select" />
+
     <Button
         android:id="@+id/currency_button"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/green_effect_border"
-        android:textSize="20dp"
-        android:text="Currency"/>
+        style="@style/SelectionButtonStyle"
+        android:text="@string/currency_select" />
+
     <Button
         android:id="@+id/regional_block_button"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/green_effect_border"
-        android:textSize="20dp"
-        android:text="Regional block"/>
+        style="@style/SelectionButtonStyle"
+        android:text="@string/regional_block_select" />
 </LinearLayout>

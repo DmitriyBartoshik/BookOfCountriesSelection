@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.brothersoft.bookofcountries.app.App;
 import com.brothersoft.bookofcountries.presentation.base.BaseViewModel;
+import com.brothersoft.domain.entity.DomainModel;
 import com.brothersoft.domain.entity.weather.CapitalWeather;
 import com.brothersoft.domain.usecases.weather.GetCapitalWeatherUseCase;
 
@@ -16,7 +17,7 @@ import javax.inject.Inject;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
-public class CapitalViewModel extends BaseViewModel<CapitalRouter> {
+public class CapitalViewModel extends BaseViewModel<CapitalRouter,DomainModel> {
     public ObservableField<String> weatherImageUrl = new ObservableField<>();
     public ObservableField<String> capital = new ObservableField<>();
     public ObservableField<String> country = new ObservableField<>();

@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.brothersoft.bookofcountries.R;
@@ -31,6 +33,7 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
     private List<String[]> languages = new ArrayList<>();
     private RecyclerView recyclerView;
     private FieldTypeAdapter adapter;
+    ProgressBar progressBar;
     @Inject
     GetLanguagesUseCase languagesUseCase;
 
@@ -38,6 +41,7 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_type_group_list);
+        progressBar=(ProgressBar)findViewById(R.id.progress_bar) ;
         runInject();
         setText();
         getLanguageList();
@@ -49,6 +53,7 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
 
 
     public void getLanguageList() {
+
         languagesUseCase.getLanguages("languages")
                 .subscribe(new Observer<List<LanguageList>>() {
                     @Override
@@ -59,6 +64,7 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
                     public void onNext(List<LanguageList> languagesList) {
                         getLanguagesName(languagesList);
                         setLanguageRecycler();
+                        progressBar.setVisibility(View.INVISIBLE);
                     }
 
                     @Override
@@ -96,9 +102,11 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
 
     @Override
     public void onItemClick(int position) {
-        String language = languages.get(position)[1];
+        String languageCode = languages.get(position)[1];
+        String languageName = languages.get(position)[0];
+
         Intent intent = CountryGroupActivity.getIntent(this,
-                "lang", language);
+                "lang", languageCode,languageName);
         startActivity(intent);
     }
     public void setText(){

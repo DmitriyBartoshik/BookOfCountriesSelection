@@ -7,14 +7,18 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:fontFamily">@font/bradobrei</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
     </style>
 
     <!-- toolbar style -->
     <style name="Toolbar">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">?attr/actionBarSize</item>
-        <item name="android:background">@drawable/green_effect</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:textColor">#111211</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:background">@drawable/blue_effect_border</item>
+
     </style>
 
     <!-- activity_country styles -->
@@ -30,6 +34,8 @@
         <item name="android:layout_width">170dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">25sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+
     </style>
 
     <!-- item_activities  styles -->
@@ -39,15 +45,16 @@
         <item name="android:textSize">25sp</item>
         <item name="android:paddingLeft">5dp</item>
         <item name="android:paddingRight">5dp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
 
     <style name="ItemStyle" parent="BaseItemStyle">
-        <item name="android:background">@drawable/green_effect</item>
+        <item name="android:background">@drawable/blue_effect</item>
     </style>
 
     <style name="BorderItemStyle" parent="BaseItemStyle">
         <item name="android:layout_marginBottom">5dp</item>
-        <item name="android:background">@drawable/green_effect_border</item>
+        <item name="android:background">@drawable/blue_effect_radius</item>
     </style>
 
 
@@ -71,6 +78,7 @@
     </style>
 
     <style name="BaseCapitalTextViewStyle">
+        <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center</item>
@@ -88,11 +96,32 @@
         <item name="android:orientation">vertical</item>
     </style>
 
-    <style name="CountryGroupTextViewStyle">
+    <style name="BaseCountryGroupTextViewStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">#111211</item>
+    </style>
+
+    <style name="TopCountryGroupTextViewStyle" parent="BaseCountryGroupTextViewStyle">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">30sp</item>
+
+    </style>
+
+    <style name="BottomCountryGroupTextViewStyle" parent="BaseCountryGroupTextViewStyle">
+        <item name="android:fontFamily">@font/roboto_medium</item>
         <item name="android:textSize">40sp</item>
+    </style>
+
+    <style name="SelectionButtonStyle">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:background">@drawable/blue_effect_radius</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">25sp</item>
     </style>
 </resources>
 

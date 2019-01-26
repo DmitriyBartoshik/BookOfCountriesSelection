@@ -15,10 +15,11 @@
         android:orientation="horizontal"
         android:layout_marginHorizontal="5dp"
         android:layout_marginVertical="3dp"
-        android:background="@drawable/orange_effect_border">
+        android:background="@drawable/blue_effect_border_radius">
 
         <ImageView
             android:id="@+id/card_flag_view"
+            android:layout_marginLeft="10dp"
             android:layout_width="60dp"
             android:layout_height="60dp"
             app:imageUrl="@{viewModel.flag}" />
@@ -37,12 +38,14 @@
             <TextView
                 style="@style/BaseCapitalTextViewStyle"
                 android:id="@+id/card_country_capital"
-                android:text="@{viewModel.capital}" />
+                android:text="@{viewModel.capital}"
+                android:fontFamily="@font/roboto_medium"/>
 
             <TextView
                 style="@style/BaseCapitalTextViewStyle"
                 android:id="@+id/card_subregion"
-                android:text="@{viewModel.region}" />
+                android:text="@{viewModel.region}"
+                android:fontFamily="@font/roboto_regular"/>
         </LinearLayout>
 
     </LinearLayout>

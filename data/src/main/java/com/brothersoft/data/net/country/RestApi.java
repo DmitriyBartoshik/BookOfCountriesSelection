@@ -14,7 +14,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-public interface RestApi {
+public interface    RestApi {
 
     @GET("all")
     Observable<List<CountryResponse>> getAllCountries();

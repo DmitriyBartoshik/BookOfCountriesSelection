@@ -1,5 +1,7 @@
 package com.brothersoft.bookofcountries.presentation.screens.country.map;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -11,9 +13,24 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import static com.brothersoft.bookofcountries.presentation.utils.Extras.EXTRA_COUNTRY_CAPITAL_LAT;
+import static com.brothersoft.bookofcountries.presentation.utils.Extras.EXTRA_COUNTRY_CAPITAL_LNG;
+import static com.brothersoft.bookofcountries.presentation.utils.Extras.EXTRA_COUNTRY_FIELD_NAME;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private String countryName;
+    private double capitalLat;
+    private double capitalLng;
+
+    public static Intent getIntent(Activity activity, String capital, double lat, double lng) {
+        Intent intent = new Intent(activity, MapsActivity.class);
+        intent.putExtra(EXTRA_COUNTRY_FIELD_NAME, capital);
+        intent.putExtra(EXTRA_COUNTRY_CAPITAL_LAT, lat);
+        intent.putExtra(EXTRA_COUNTRY_CAPITAL_LNG, lng);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +39,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
+        countryName = getIntent().getExtras().getString(EXTRA_COUNTRY_FIELD_NAME);
+        capitalLat = getIntent().getExtras().getDouble(EXTRA_COUNTRY_CAPITAL_LAT);
+        capitalLng = getIntent().getExtras().getDouble(EXTRA_COUNTRY_CAPITAL_LNG);
         mapFragment.getMapAsync(this);
     }
 
@@ -40,8 +60,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng capitalLatLng = new LatLng(capitalLat, capitalLng);
+        mMap.addMarker(new MarkerOptions().position(capitalLatLng).title(countryName));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(capitalLatLng, 1f));
     }
 }

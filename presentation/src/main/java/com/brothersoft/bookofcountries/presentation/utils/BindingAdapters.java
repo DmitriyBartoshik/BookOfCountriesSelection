@@ -2,6 +2,7 @@ package com.brothersoft.bookofcountries.presentation.utils;
 
 import android.app.Activity;
 import android.databinding.BindingAdapter;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.ahmadrosid.svgloader.SvgLoader;
@@ -24,5 +25,10 @@ public class BindingAdapters {
                 .load(url)
                 .resize(150,150)
                 .into(view);
+    }
+
+    @BindingAdapter("android:visibility")
+    public static void setVisibility(View view, Boolean isVisible) {
+        view.setVisibility(isVisible ? View.VISIBLE : View.GONE);
     }
 }

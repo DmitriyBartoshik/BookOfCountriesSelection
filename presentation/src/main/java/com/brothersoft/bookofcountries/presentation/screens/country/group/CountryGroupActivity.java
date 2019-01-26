@@ -13,15 +13,17 @@ import com.brothersoft.bookofcountries.databinding.ActivityCountryGroupBinding;
 import com.brothersoft.bookofcountries.presentation.base.BaseMvvmActivity;
 
 import static com.brothersoft.bookofcountries.presentation.utils.Extras.EXTRA_COUNTRY_FIELD;
-import static com.brothersoft.bookofcountries.presentation.utils.Extras.EXTRA_COUNTRY_FIELD_VALUES;
+import static com.brothersoft.bookofcountries.presentation.utils.Extras.EXTRA_COUNTRY_FIELD_CODE;
+import static com.brothersoft.bookofcountries.presentation.utils.Extras.EXTRA_COUNTRY_FIELD_NAME;
 
 public class CountryGroupActivity extends BaseMvvmActivity<CountryGroupViewModel,
         ActivityCountryGroupBinding, CountryGroupRouter> {
 
-    public static Intent getIntent(Activity activity, String countryField, String countryFieldValues) {
+    public static Intent getIntent(Activity activity, String countryField, String countryFieldCode,String countryFieldName) {
         Intent intent = new Intent(activity, CountryGroupActivity.class);
         intent.putExtra(EXTRA_COUNTRY_FIELD, countryField);
-        intent.putExtra(EXTRA_COUNTRY_FIELD_VALUES, countryFieldValues);
+        intent.putExtra(EXTRA_COUNTRY_FIELD_CODE, countryFieldCode);
+        intent.putExtra(EXTRA_COUNTRY_FIELD_NAME, countryFieldName);
 
         return intent;
     }
@@ -45,8 +47,10 @@ public class CountryGroupActivity extends BaseMvvmActivity<CountryGroupViewModel
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         String field = getIntent().getExtras().getString(EXTRA_COUNTRY_FIELD);
-        String fieldValue = getIntent().getExtras().getString(EXTRA_COUNTRY_FIELD_VALUES);
-        viewModel.getCountryGroupList(field, fieldValue);
+        String fieldCode = getIntent().getExtras().getString(EXTRA_COUNTRY_FIELD_CODE);
+        String fieldName = getIntent().getExtras().getString(EXTRA_COUNTRY_FIELD_NAME);
+
+        viewModel.getCountryGroupList(field, fieldCode,fieldName);
         settingsAdapter();
     }
 

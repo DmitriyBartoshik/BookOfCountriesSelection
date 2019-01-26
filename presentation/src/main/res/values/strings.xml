@@ -1,16 +1,17 @@
 <resources>
     <string name="app_name">Book of countries</string>
-    <string name="error_internet_not_available">Интернет не доступен</string>
-    <string name="error_server_not_available">Сервер не доступен</string>
-    <string name="error_server">Серверная ошибка</string>
-    <string name="error">Непредвиденная ошибка</string>
+    <string name="error_internet_not_available">Internet is not available</string>
+    <string name="error_server_not_available">Server is not available</string>
+    <string name="error_server">Servers error</string>
+    <string name="error">Unexpected error</string>
     <string name="capital">Capital:</string>
     <string name="region">Region:</string>
     <string name="language">Language:</string>
     <string name="currency">Currency:</string>
-    <string name="block">Block:</string>
+    <string name="block">Bloc:</string>
     <string name="population">Population:</string>
-    <string name="area">Area:</string>
+    <string name="area">Area,  km<sup><small>2</small></sup>  :</string>
+    <string name="gini">Index gini:</string>
     <string name="calling_code">Calling code:</string>
     <string name="domain">Domain:</string>
     <string name="alpha2code">Alpha-2 code:</string>
@@ -22,4 +23,11 @@
     <string name="sunset">sunset</string>
     <string name="sunrise">sunrise</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="full_list_select">Full list</string>
+    <string name="region_select">Region</string>
+    <string name="language_select">Language</string>
+    <string name="currency_select">Currency</string>
+    <string name="regional_block_select">Regional block</string>
+
 </resources>

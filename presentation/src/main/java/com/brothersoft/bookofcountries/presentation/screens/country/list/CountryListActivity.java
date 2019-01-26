@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
 import com.brothersoft.bookofcountries.R;
 import com.brothersoft.bookofcountries.databinding.ActivityCountryListBinding;
 import com.brothersoft.bookofcountries.presentation.base.BaseMvvmActivity;
@@ -42,11 +43,18 @@ public class CountryListActivity extends BaseMvvmActivity<CountryListViewModel,
         super.onCreate(savedInstanceState);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         binding.countryList.setLayoutManager(new LinearLayoutManager(this));
         binding.countryList.setAdapter(viewModel.adapter);
         binding.countryList.setHasFixedSize(true);
-    }
 
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.application_menu, menu);

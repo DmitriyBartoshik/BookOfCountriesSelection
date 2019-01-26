@@ -13,16 +13,16 @@ public class CountryRouter extends BaseRouter<CountryActivity> {
     }
 
 
-    public void goToCountryGroupList(String countryField, String countryFieldValue) {
-        activity.startActivity(CountryGroupActivity.getIntent(activity, countryField, countryFieldValue));
+    public void goToCountryGroupList(String countryField, String countryFieldCode, String countryFieldName) {
+        activity.startActivity(CountryGroupActivity
+                .getIntent(activity, countryField, countryFieldCode, countryFieldName));
     }
 
     public void goToCapital(String capital) {
         activity.startActivity(CapitalActivity.getIntent(activity, capital));
     }
 
-    public void goToMap() {
-        Intent intent = new Intent(activity, MapsActivity.class);
-        activity.startActivity(intent);
+    public void goToMap(String countryName, double lat, double lng) {
+        activity.startActivity(MapsActivity.getIntent(activity, countryName, lat, lng));
     }
 }

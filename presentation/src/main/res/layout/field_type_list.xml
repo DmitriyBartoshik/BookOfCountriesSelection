@@ -3,12 +3,14 @@
 
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/field_text"
-    android:background="@drawable/orange_effect_border"
+    android:background="@drawable/blue_effect_border_radius"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
     android:textColor="#111211"
-    android:textSize="30sp"
+    android:textSize="25sp"
+    android:fontFamily="@font/roboto_medium"
+    android:paddingVertical="10dp"
     android:layout_marginHorizontal="50dp"
     android:layout_marginVertical="3dp"
     />

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.brothersoft.bookofcountries.R;
@@ -30,6 +32,7 @@ public class CurrencyListActivity extends AppCompatActivity implements OnItemCli
     private List<String[]> currencies = new ArrayList<>();
     private RecyclerView recyclerView;
     private FieldTypeAdapter adapter;
+    ProgressBar progressBar;
 
     @Inject
     GetCurrenciesUseCase currenciesUseCase;
@@ -38,6 +41,7 @@ public class CurrencyListActivity extends AppCompatActivity implements OnItemCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_type_group_list);
+        progressBar=(ProgressBar)findViewById(R.id.progress_bar) ;
         runInject();
         setText();
         getCurrencyList();
@@ -55,6 +59,7 @@ public class CurrencyListActivity extends AppCompatActivity implements OnItemCli
                     public void onNext(List<CurrencyList> currencyLists) {
                         getCurrenciesName(currencyLists);
                         setCurrencyRecycler();
+                        progressBar.setVisibility(View.INVISIBLE);
                     }
 
                     @Override
@@ -98,9 +103,10 @@ public class CurrencyListActivity extends AppCompatActivity implements OnItemCli
 
     @Override
     public void onItemClick(int position) {
-        String currency = currencies.get(position)[1];
+        String currencyCode = currencies.get(position)[1];
+        String currencyName = currencies.get(position)[0];
         Intent intent = CountryGroupActivity.getIntent(this,
-                "currency", currency);
+                "currency", currencyCode, currencyName);
         startActivity(intent);
     }
     public void setText(){

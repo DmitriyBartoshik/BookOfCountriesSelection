@@ -4,6 +4,7 @@ import com.brothersoft.bookofcountries.app.App;
 import com.brothersoft.bookofcountries.presentation.base.BaseViewModel;
 import com.brothersoft.bookofcountries.presentation.base.recycler.ClickedItemModel;
 import com.brothersoft.bookofcountries.presentation.screens.country.list.items.country.CountryListAdapter;
+import com.brothersoft.domain.entity.DomainModel;
 import com.brothersoft.domain.entity.country.Country;
 import com.brothersoft.domain.usecases.country.GetCountryGroupUseCase;
 
@@ -14,7 +15,7 @@ import javax.inject.Inject;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
-public class CountryGroupViewModel extends BaseViewModel<CountryGroupRouter> {
+public class CountryGroupViewModel extends BaseViewModel<CountryGroupRouter, DomainModel> {
     public String field;
     public String fieldValue;
 
@@ -27,13 +28,14 @@ public class CountryGroupViewModel extends BaseViewModel<CountryGroupRouter> {
         App.getAppComponent().runInject(this);
     }
 
-   public CountryGroupViewModel(){
-       adapterClickObserver();
-   }
+    public CountryGroupViewModel() {
+        adapterClickObserver();
+    }
 
 
-    public void getCountryGroupList(String field, String fieldValue) {
-        setField(field, fieldValue);
+    public void getCountryGroupList(String field, String fieldValue, String fieldName) {
+        showProgressBar();
+        setField(field, fieldName);
         countryGroupUseCase.getCountryGroupList(field, fieldValue).subscribe(new Observer<List<Country>>() {
             @Override
             public void onSubscribe(Disposable d) {
@@ -43,6 +45,7 @@ public class CountryGroupViewModel extends BaseViewModel<CountryGroupRouter> {
             @Override
             public void onNext(List<Country> countries) {
                 adapter.setItems(countries);
+                hideProgressBar();
             }
 
             @Override
@@ -58,14 +61,17 @@ public class CountryGroupViewModel extends BaseViewModel<CountryGroupRouter> {
     }
 
     public void setField(String field, String fieldValue) {
-        if (field.equals("lang")) {
-            field = "Language";
-        }
+        if (field.equals("lang"))
+            field = "language";
+        if (field.equals("regionalbloc"))
+            field = "regional bloc";
+
         this.field = field;
         this.fieldValue = fieldValue;
 
     }
-    public void adapterClickObserver(){
+
+    public void adapterClickObserver() {
         adapter.observeItemClick().subscribe(new Observer<ClickedItemModel>() {
             @Override
             public void onSubscribe(Disposable d) {
