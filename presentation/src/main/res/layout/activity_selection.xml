@@ -15,13 +15,9 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/roboto_bold"
-            android:gravity="center"
-            android:text="Book of countries"
-            android:textColor="#111211"
-            android:textSize="20sp" />
+           style="@style/ToolbarTextStyle"
+            android:text="Book of countries"/>
+
     </android.support.v7.widget.Toolbar>
 
 

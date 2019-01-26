@@ -5,8 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -46,6 +49,9 @@ public class RegionalBlockActivity extends AppCompatActivity implements OnItemCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_type_group_list);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        backButtonInit();
         progressBar=(ProgressBar)findViewById(R.id.progress_bar) ;
         runInject();
         setText();
@@ -118,8 +124,17 @@ public class RegionalBlockActivity extends AppCompatActivity implements OnItemCl
     }
 
     public void setText() {
-        TextView textView = (TextView) findViewById(R.id.text_header_group_type_list);
+        TextView textView = (TextView) findViewById(R.id.toolbar_text);
         textView.setText("Regional blocs");
+    }
+    public void backButtonInit(){
+        ImageView backImage=(ImageView) findViewById(R.id.backImage);
+        backImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 }
 

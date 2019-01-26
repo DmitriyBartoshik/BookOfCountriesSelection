@@ -2,11 +2,13 @@ package com.brothersoft.bookofcountries.presentation.screens.selection;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.brothersoft.bookofcountries.R;
 import com.brothersoft.bookofcountries.presentation.screens.country.group.CountryGroupActivity;
@@ -24,8 +26,7 @@ public class RegionListActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_region_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        backButtonInit();
         buttonInit();
         listenerInit();
     }
@@ -53,9 +54,13 @@ public class RegionListActivity extends AppCompatActivity implements View.OnClic
                 "region", region, region);
         startActivity(intent);
     }
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
+    public void backButtonInit(){
+        ImageView backImage=(ImageView) findViewById(R.id.backImage);
+        backImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 }

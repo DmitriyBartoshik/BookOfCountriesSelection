@@ -10,14 +10,16 @@
         style="@style/Toolbar"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/backImage"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_bold"
-            android:gravity="center"
-            android:text="Book of countries"
-            android:textColor="#111211"
-            android:textSize="20sp" />
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/toolbar_text"
+            style="@style/ToolbarTextStyle"
+            android:text="Book of countries" />
     </android.support.v7.widget.Toolbar>
 
     <Button

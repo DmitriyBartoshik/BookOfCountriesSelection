@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.brothersoft.bookofcountries.R;
 import com.brothersoft.bookofcountries.databinding.ActivityCountryGroupBinding;
@@ -52,12 +54,22 @@ public class CountryGroupActivity extends BaseMvvmActivity<CountryGroupViewModel
 
         viewModel.getCountryGroupList(field, fieldCode,fieldName);
         settingsAdapter();
+        backButtonInit();
     }
 
     public void settingsAdapter() {
         binding.countryList.setLayoutManager(new LinearLayoutManager(this));
         binding.countryList.setAdapter(viewModel.adapter);
         binding.countryList.setHasFixedSize(true);
+    }
+    public void backButtonInit(){
+        ImageView backImage=(ImageView) findViewById(R.id.backImage);
+        backImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 }
 

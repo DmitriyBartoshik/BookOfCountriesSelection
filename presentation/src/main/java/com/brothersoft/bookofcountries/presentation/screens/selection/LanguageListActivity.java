@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -41,8 +43,11 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_type_group_list);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         progressBar=(ProgressBar)findViewById(R.id.progress_bar) ;
         runInject();
+        backButtonInit();
         setText();
         getLanguageList();
     }
@@ -110,7 +115,16 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
         startActivity(intent);
     }
     public void setText(){
-        TextView textView=(TextView)findViewById(R.id.text_header_group_type_list);
+        TextView textView=(TextView)findViewById(R.id.toolbar_text);
         textView.setText("Languages");
+    }
+    public void backButtonInit(){
+        ImageView backImage=(ImageView) findViewById(R.id.backImage);
+        backImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 }

@@ -18,23 +18,33 @@
             android:background="@drawable/blue_effect"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/header_country_group"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/blue_effect"
-                android:orientation="vertical">
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                android:layout_height="wrap_content">
 
-                <TextView
-                    style="@style/BottomCountryGroupTextViewStyle"
-                    android:gravity="center"
-                    android:text="@{viewModel.fieldValue}" />
+                <ImageView
+                    android:id="@+id/backImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_back" />
 
-                <TextView
-                    style="@style/TopCountryGroupTextViewStyle"
-                    android:gravity="center"
-                    android:text="@{viewModel.field}" />
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/ToolbarTextStyle"
+                        android:gravity="center"
+                        android:text="@{viewModel.fieldValue}" />
+
+                    <TextView
+                        style="@style/DownCountryGroupTextViewStyle"
+                        android:gravity="center"
+                        android:text="@{viewModel.field}" />
+                </LinearLayout>
+            </android.support.v7.widget.Toolbar>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/country_list"

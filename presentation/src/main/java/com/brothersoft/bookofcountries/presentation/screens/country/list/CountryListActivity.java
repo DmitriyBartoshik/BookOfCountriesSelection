@@ -9,6 +9,8 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 
 import com.brothersoft.bookofcountries.R;
@@ -43,18 +45,13 @@ public class CountryListActivity extends BaseMvvmActivity<CountryListViewModel,
         super.onCreate(savedInstanceState);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        backButtonInit();
         binding.countryList.setLayoutManager(new LinearLayoutManager(this));
         binding.countryList.setAdapter(viewModel.adapter);
         binding.countryList.setHasFixedSize(true);
 
     }
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
-    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.application_menu, menu);
@@ -105,6 +102,15 @@ public class CountryListActivity extends BaseMvvmActivity<CountryListViewModel,
             }
             viewModel.adapter.setItems(filteredCountryList);
         }
+    }
+    public void backButtonInit(){
+        ImageView backImage=(ImageView) findViewById(R.id.backImage);
+        backImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 }
 
