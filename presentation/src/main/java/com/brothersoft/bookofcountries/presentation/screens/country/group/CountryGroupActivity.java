@@ -6,13 +6,22 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.brothersoft.bookofcountries.R;
 import com.brothersoft.bookofcountries.databinding.ActivityCountryGroupBinding;
 import com.brothersoft.bookofcountries.presentation.base.BaseMvvmActivity;
+import com.brothersoft.domain.entity.country.Country;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.brothersoft.bookofcountries.presentation.utils.Extras.EXTRA_COUNTRY_FIELD;
 import static com.brothersoft.bookofcountries.presentation.utils.Extras.EXTRA_COUNTRY_FIELD_CODE;
@@ -20,6 +29,8 @@ import static com.brothersoft.bookofcountries.presentation.utils.Extras.EXTRA_CO
 
 public class CountryGroupActivity extends BaseMvvmActivity<CountryGroupViewModel,
         ActivityCountryGroupBinding, CountryGroupRouter> {
+
+    public List<Country> allCountries = new ArrayList<>();
 
     public static Intent getIntent(Activity activity, String countryField, String countryFieldCode,String countryFieldName) {
         Intent intent = new Intent(activity, CountryGroupActivity.class);
@@ -51,10 +62,63 @@ public class CountryGroupActivity extends BaseMvvmActivity<CountryGroupViewModel
         String field = getIntent().getExtras().getString(EXTRA_COUNTRY_FIELD);
         String fieldCode = getIntent().getExtras().getString(EXTRA_COUNTRY_FIELD_CODE);
         String fieldName = getIntent().getExtras().getString(EXTRA_COUNTRY_FIELD_NAME);
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         viewModel.getCountryGroupList(field, fieldCode,fieldName);
         settingsAdapter();
         backButtonInit();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.application_menu, menu);
+        MenuItem search = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(search);
+        search(searchView);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void search(SearchView searchView) {
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String search) {
+                initialListCountry();
+                filterCountryList(search);
+                return true;
+            }
+        });
+    }
+
+    public void initialListCountry() {
+        if (allCountries.size() == 0) {
+            allCountries = viewModel.adapter.getItems();
+        }
+    }
+
+    public void filterCountryList(String search) {
+        if (search.isEmpty()) {
+            viewModel.adapter.setItems(allCountries);
+        } else {
+            List<Country> filteredCountryList = new ArrayList<>();
+            for (Country country : allCountries) {
+                if (country.getName().toLowerCase().contains(search) || country.getCapital().toLowerCase().contains(search)) {
+                    filteredCountryList.add(country);
+                }
+            }
+            viewModel.adapter.setItems(filteredCountryList);
+        }
     }
 
     public void settingsAdapter() {

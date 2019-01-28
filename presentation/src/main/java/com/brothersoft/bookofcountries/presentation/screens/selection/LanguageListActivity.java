@@ -1,11 +1,15 @@
 package com.brothersoft.bookofcountries.presentation.screens.selection;
 
 import android.content.Intent;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -16,6 +20,7 @@ import com.brothersoft.bookofcountries.app.App;
 import com.brothersoft.bookofcountries.presentation.screens.country.group.CountryGroupActivity;
 import com.brothersoft.bookofcountries.presentation.screens.selection.adapter.FieldTypeAdapter;
 import com.brothersoft.bookofcountries.presentation.screens.selection.adapter.OnItemClickListener;
+import com.brothersoft.domain.entity.country.Country;
 import com.brothersoft.domain.entity.country.Language;
 import com.brothersoft.domain.entity.country.LanguageList;
 import com.brothersoft.domain.usecases.country.GetLanguagesUseCase;
@@ -45,12 +50,14 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
         setContentView(R.layout.activity_type_group_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        progressBar=(ProgressBar)findViewById(R.id.progress_bar) ;
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         runInject();
         backButtonInit();
         setText();
+
         getLanguageList();
     }
+
 
     public void runInject() {
         App.getAppComponent().runInject(this);
@@ -101,8 +108,8 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
         recyclerView = findViewById(R.id.group_List);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new FieldTypeAdapter(this, this.languages);
-        adapter.setOnClickListener(this);
         recyclerView.setAdapter(adapter);
+        adapter.setOnClickListener(this);
     }
 
     @Override
@@ -111,15 +118,17 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
         String languageName = languages.get(position)[0];
 
         Intent intent = CountryGroupActivity.getIntent(this,
-                "lang", languageCode,languageName);
+                "lang", languageCode, languageName);
         startActivity(intent);
     }
-    public void setText(){
-        TextView textView=(TextView)findViewById(R.id.toolbar_text);
+
+    public void setText() {
+        TextView textView = (TextView) findViewById(R.id.toolbar_text);
         textView.setText("Languages");
     }
-    public void backButtonInit(){
-        ImageView backImage=(ImageView) findViewById(R.id.backImage);
+
+    public void backButtonInit() {
+        ImageView backImage = (ImageView) findViewById(R.id.backImage);
         backImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,4 +136,5 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
             }
         });
     }
+
 }

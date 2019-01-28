@@ -3,18 +3,22 @@ package com.brothersoft.bookofcountries.presentation.screens.selection.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.brothersoft.bookofcountries.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class FieldTypeAdapter extends RecyclerView.Adapter<FieldTypeAdapter.FieldViewHolder> {
-    private LayoutInflater inflater;
-    private List<String[]> list;
+public class FieldTypeAdapter extends RecyclerView.Adapter<FieldTypeAdapter.FieldViewHolder>  {
+    public LayoutInflater inflater;
+    public List<String[]> list;
     private OnItemClickListener listener;
 
     public FieldTypeAdapter(Context context, List<String[]> list) {
@@ -43,12 +47,16 @@ public class FieldTypeAdapter extends RecyclerView.Adapter<FieldTypeAdapter.Fiel
         return list.size();
     }
 
+
+
     public class FieldViewHolder extends RecyclerView.ViewHolder {
         TextView textField;
 
         public FieldViewHolder(@NonNull View itemView) {
             super(itemView);
+
             textField = itemView.findViewById(R.id.field_text);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -58,4 +66,6 @@ public class FieldTypeAdapter extends RecyclerView.Adapter<FieldTypeAdapter.Fiel
         }
     }
 }
+
+
 
