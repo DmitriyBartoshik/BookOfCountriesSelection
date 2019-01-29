@@ -48,6 +48,8 @@ public class CountryListActivity extends BaseMvvmActivity<CountryListViewModel,
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        viewModel.getCountryList();
+        settingsAdapter();
         addBanner();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -118,6 +120,12 @@ public class CountryListActivity extends BaseMvvmActivity<CountryListViewModel,
                 onBackPressed();
             }
         });
+    }
+
+    public void settingsAdapter() {
+        binding.countryList.setLayoutManager(new LinearLayoutManager(this));
+        binding.countryList.setAdapter(viewModel.adapter);
+        binding.countryList.setHasFixedSize(true);
     }
 
     public void addBanner() {

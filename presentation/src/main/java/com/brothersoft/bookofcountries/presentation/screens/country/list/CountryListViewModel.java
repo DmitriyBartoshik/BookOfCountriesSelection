@@ -28,7 +28,7 @@ public class CountryListViewModel extends BaseViewModel<CountryListRouter, Domai
     }
 
     CountryListViewModel() {
-        getCountryList();
+
         adapterClickObserver();
     }
 

@@ -66,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/blue_effect"
                     android:orientation="vertical"
-                    android:layout_marginBottom="60dp">
+                    android:layout_marginBottom="50dp">
 
                     <LinearLayout
                         style="@style/CountryActivityLayoutStyle"
@@ -267,7 +267,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            ads:adSize="SMART_BANNER"
+            ads:adSize="BANNER"
             ads:adUnitId="@string/main_book_block">
         </com.google.android.gms.ads.AdView>
 
