@@ -17,6 +17,9 @@ import com.brothersoft.bookofcountries.R;
 import com.brothersoft.bookofcountries.databinding.ActivityCountryListBinding;
 import com.brothersoft.bookofcountries.presentation.base.BaseMvvmActivity;
 import com.brothersoft.domain.entity.country.Country;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +27,8 @@ import java.util.List;
 public class CountryListActivity extends BaseMvvmActivity<CountryListViewModel,
         ActivityCountryListBinding, CountryListRouter> {
     public List<Country> allCountries = new ArrayList<>();
+
+    private AdView mAdView;
 
     @Override
     protected CountryListViewModel provideViewModel() {
@@ -43,6 +48,7 @@ public class CountryListActivity extends BaseMvvmActivity<CountryListViewModel,
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        addBanner();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         backButtonInit();
@@ -103,14 +109,24 @@ public class CountryListActivity extends BaseMvvmActivity<CountryListViewModel,
             viewModel.adapter.setItems(filteredCountryList);
         }
     }
-    public void backButtonInit(){
-        ImageView backImage=(ImageView) findViewById(R.id.backImage);
+
+    public void backButtonInit() {
+        ImageView backImage = (ImageView) findViewById(R.id.backImage);
         backImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
+    }
+
+    public void addBanner() {
+        MobileAds.initialize(this,
+                "ca-app-pub-7982947060816171~2298098731");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }
 

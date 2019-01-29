@@ -11,12 +11,10 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/blue_effect_border">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -26,7 +24,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:background="@drawable/blue_effect_border">
 
                     <TextView
                         android:id="@+id/country_name"
@@ -44,9 +43,6 @@
                         android:layout_height="130dp"
                         android:layout_gravity="center"
                         app:imageUrl="@{viewModel.flag}" />
-
-                </LinearLayout>
-
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -57,11 +53,20 @@
                     android:text="map"
                     android:textSize="20dp" />
 
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/blue_effect_border"
+                    >
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/blue_effect"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginBottom="60dp">
 
                     <LinearLayout
                         style="@style/CountryActivityLayoutStyle"
@@ -251,8 +256,20 @@
                             android:text="@{viewModel.timeZone}" />
                     </LinearLayout>
                 </LinearLayout>
+                </ScrollView>
+
+
             </LinearLayout>
-        </ScrollView>
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:background="@drawable/blue_effect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="@string/main_book_block">
+        </com.google.android.gms.ads.AdView>
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -260,5 +277,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:visibility="@{viewModel.progressBar}" />
+
     </FrameLayout>
 </layout>

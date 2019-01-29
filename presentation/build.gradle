@@ -39,15 +39,14 @@ dependencies {
     implementation "android.arch.lifecycle:viewmodel:$archVersion"
 
     //Binding
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    implementation 'com.google.android.gms:play-services-maps:15.0.1'
     annotationProcessor "com.android.databinding:compiler:$bindingVersion"
 
     //Dagger
     implementation "com.google.dagger:dagger:$daggerVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
 
-    implementation 'com.google.android.gms:play-services-maps:15.0.1'
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    implementation 'com.google.android.gms:play-services-ads:17.1.1'
 
     implementation project(path: ':data')
 

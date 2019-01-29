@@ -14,26 +14,53 @@
     <application
         android:name=".app.App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/book_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.screens.country.list.CountryListActivity" />
-        <activity android:name=".presentation.screens.country.single.CountryActivity" />
-        <activity android:name=".presentation.screens.country.group.CountryGroupActivity" />
-        <activity android:name=".presentation.screens.country.capital.CapitalActivity" />
-        <activity android:name=".presentation.screens.selection.SelectionActivity">
+
+        <!--<meta-data-->
+        <!--android:name="com.google.android.gms.ads.AD_MANAGER_APP"-->
+        <!--android:value="true"/>-->
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-7982947060816171~2298098731" />
+
+        <activity
+            android:name=".presentation.screens.country.list.CountryListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.screens.country.single.CountryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.screens.country.group.CountryGroupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.screens.country.capital.CapitalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.screens.selection.SelectionActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.screens.selection.RegionListActivity" />
-        <activity android:name=".presentation.screens.selection.LanguageListActivity" />
-        <activity android:name=".presentation.screens.selection.CurrencyListActivity" />
-        <activity android:name=".presentation.screens.selection.RegionalBlockActivity" />
+        <activity
+            android:name=".presentation.screens.selection.RegionListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.screens.selection.LanguageListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.screens.selection.CurrencyListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.screens.selection.RegionalBlockActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.screens.country.map.MapsActivity"
             android:label="@string/title_activity_maps" />

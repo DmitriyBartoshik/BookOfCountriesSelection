@@ -10,6 +10,9 @@ import android.widget.Button;
 
 import com.brothersoft.bookofcountries.R;
 import com.brothersoft.bookofcountries.presentation.screens.country.list.CountryListActivity;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class SelectionActivity extends AppCompatActivity {
     private Button fullList;
@@ -18,10 +21,14 @@ public class SelectionActivity extends AppCompatActivity {
     private Button currency;
     private Button block;
 
+    private AdView mAdView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection);
+        addBanner();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
         buttonInit();
@@ -72,5 +79,14 @@ public class SelectionActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void addBanner() {
+        MobileAds.initialize(this,
+                "ca-app-pub-7982947060816171~2298098731");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }

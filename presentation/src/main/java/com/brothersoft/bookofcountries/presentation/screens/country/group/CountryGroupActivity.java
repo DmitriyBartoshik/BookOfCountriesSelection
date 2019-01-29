@@ -19,6 +19,9 @@ import com.brothersoft.bookofcountries.R;
 import com.brothersoft.bookofcountries.databinding.ActivityCountryGroupBinding;
 import com.brothersoft.bookofcountries.presentation.base.BaseMvvmActivity;
 import com.brothersoft.domain.entity.country.Country;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,10 +32,11 @@ import static com.brothersoft.bookofcountries.presentation.utils.Extras.EXTRA_CO
 
 public class CountryGroupActivity extends BaseMvvmActivity<CountryGroupViewModel,
         ActivityCountryGroupBinding, CountryGroupRouter> {
+    private AdView mAdView;
 
     public List<Country> allCountries = new ArrayList<>();
 
-    public static Intent getIntent(Activity activity, String countryField, String countryFieldCode,String countryFieldName) {
+    public static Intent getIntent(Activity activity, String countryField, String countryFieldCode, String countryFieldName) {
         Intent intent = new Intent(activity, CountryGroupActivity.class);
         intent.putExtra(EXTRA_COUNTRY_FIELD, countryField);
         intent.putExtra(EXTRA_COUNTRY_FIELD_CODE, countryFieldCode);
@@ -59,12 +63,13 @@ public class CountryGroupActivity extends BaseMvvmActivity<CountryGroupViewModel
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        addBanner();
         String field = getIntent().getExtras().getString(EXTRA_COUNTRY_FIELD);
         String fieldCode = getIntent().getExtras().getString(EXTRA_COUNTRY_FIELD_CODE);
         String fieldName = getIntent().getExtras().getString(EXTRA_COUNTRY_FIELD_NAME);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        viewModel.getCountryGroupList(field, fieldCode,fieldName);
+        viewModel.getCountryGroupList(field, fieldCode, fieldName);
         settingsAdapter();
         backButtonInit();
     }
@@ -126,14 +131,24 @@ public class CountryGroupActivity extends BaseMvvmActivity<CountryGroupViewModel
         binding.countryList.setAdapter(viewModel.adapter);
         binding.countryList.setHasFixedSize(true);
     }
-    public void backButtonInit(){
-        ImageView backImage=(ImageView) findViewById(R.id.backImage);
+
+    public void backButtonInit() {
+        ImageView backImage = (ImageView) findViewById(R.id.backImage);
         backImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
+    }
+
+    public void addBanner() {
+        MobileAds.initialize(this,
+                "ca-app-pub-7982947060816171~2298098731");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }
 

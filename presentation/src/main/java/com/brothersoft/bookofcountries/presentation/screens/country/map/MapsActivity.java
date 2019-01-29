@@ -6,6 +6,9 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
 import com.brothersoft.bookofcountries.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -23,6 +26,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private String countryName;
     private double capitalLat;
     private double capitalLng;
+    private AdView mAdView;
+
 
     public static Intent getIntent(Activity activity, String capital, double lat, double lng) {
         Intent intent = new Intent(activity, MapsActivity.class);
@@ -36,6 +41,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        addBanner();
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -63,5 +69,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng capitalLatLng = new LatLng(capitalLat, capitalLng);
         mMap.addMarker(new MarkerOptions().position(capitalLatLng).title(countryName));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(capitalLatLng, 1f));
+    }
+    public void addBanner() {
+        MobileAds.initialize(this,
+                "ca-app-pub-7982947060816171~2298098731");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }

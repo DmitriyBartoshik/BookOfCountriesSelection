@@ -10,7 +10,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/blue_effect">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,8 +40,18 @@
                 android:id="@+id/country_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/blue_effect_border" />
+              />
+
         </LinearLayout>
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="@string/main_book_block">
+        </com.google.android.gms.ads.AdView>
 
         <ProgressBar
             android:id="@+id/progress_bar"

@@ -24,6 +24,9 @@ import com.brothersoft.domain.entity.country.Country;
 import com.brothersoft.domain.entity.country.Language;
 import com.brothersoft.domain.entity.country.LanguageList;
 import com.brothersoft.domain.usecases.country.GetLanguagesUseCase;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -41,6 +44,8 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
     private RecyclerView recyclerView;
     private FieldTypeAdapter adapter;
     ProgressBar progressBar;
+    private AdView mAdView;
+
     @Inject
     GetLanguagesUseCase languagesUseCase;
 
@@ -48,6 +53,7 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_type_group_list);
+        addBanner();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
@@ -137,4 +143,12 @@ public class LanguageListActivity extends AppCompatActivity implements OnItemCli
         });
     }
 
+    public void addBanner() {
+        MobileAds.initialize(this,
+                "ca-app-pub-7982947060816171~2298098731");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+    }
 }

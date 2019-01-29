@@ -20,6 +20,9 @@ import com.brothersoft.bookofcountries.presentation.screens.selection.adapter.On
 import com.brothersoft.domain.entity.country.Currency;
 import com.brothersoft.domain.entity.country.CurrencyList;
 import com.brothersoft.domain.usecases.country.GetCurrenciesUseCase;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +38,8 @@ public class CurrencyListActivity extends AppCompatActivity implements OnItemCli
     private RecyclerView recyclerView;
     private FieldTypeAdapter adapter;
     ProgressBar progressBar;
+    private AdView mAdView;
+
 
     @Inject
     GetCurrenciesUseCase currenciesUseCase;
@@ -43,10 +48,11 @@ public class CurrencyListActivity extends AppCompatActivity implements OnItemCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_type_group_list);
+        addBanner();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         backButtonInit();
-        progressBar=(ProgressBar)findViewById(R.id.progress_bar) ;
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         runInject();
         setText();
         getCurrencyList();
@@ -114,17 +120,28 @@ public class CurrencyListActivity extends AppCompatActivity implements OnItemCli
                 "currency", currencyCode, currencyName);
         startActivity(intent);
     }
-    public void setText(){
-        TextView textView=(TextView)findViewById(R.id.toolbar_text);
+
+    public void setText() {
+        TextView textView = (TextView) findViewById(R.id.toolbar_text);
         textView.setText("Currencies");
     }
-    public void backButtonInit(){
-        ImageView backImage=(ImageView) findViewById(R.id.backImage);
+
+    public void backButtonInit() {
+        ImageView backImage = (ImageView) findViewById(R.id.backImage);
         backImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
+    }
+
+    public void addBanner() {
+        MobileAds.initialize(this,
+                "ca-app-pub-7982947060816171~2298098731");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }

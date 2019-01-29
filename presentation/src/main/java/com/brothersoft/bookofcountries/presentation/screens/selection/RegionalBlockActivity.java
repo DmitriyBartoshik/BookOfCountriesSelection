@@ -24,6 +24,9 @@ import com.brothersoft.domain.entity.country.RegionalBlock;
 import com.brothersoft.domain.entity.country.RegionalBlockList;
 import com.brothersoft.domain.usecases.country.GetBlocksUseCase;
 import com.brothersoft.domain.usecases.country.GetLanguagesUseCase;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -41,6 +44,7 @@ public class RegionalBlockActivity extends AppCompatActivity implements OnItemCl
     private RecyclerView recyclerView;
     private FieldTypeAdapter adapter;
     ProgressBar progressBar;
+    private AdView mAdView;
 
     @Inject
     GetBlocksUseCase blocksUseCase;
@@ -49,10 +53,11 @@ public class RegionalBlockActivity extends AppCompatActivity implements OnItemCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_type_group_list);
+        addBanner();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         backButtonInit();
-        progressBar=(ProgressBar)findViewById(R.id.progress_bar) ;
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         runInject();
         setText();
         getRegionalBlockList();
@@ -127,14 +132,24 @@ public class RegionalBlockActivity extends AppCompatActivity implements OnItemCl
         TextView textView = (TextView) findViewById(R.id.toolbar_text);
         textView.setText("Regional blocs");
     }
-    public void backButtonInit(){
-        ImageView backImage=(ImageView) findViewById(R.id.backImage);
+
+    public void backButtonInit() {
+        ImageView backImage = (ImageView) findViewById(R.id.backImage);
         backImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
+    }
+
+    public void addBanner() {
+        MobileAds.initialize(this,
+                "ca-app-pub-7982947060816171~2298098731");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }
 

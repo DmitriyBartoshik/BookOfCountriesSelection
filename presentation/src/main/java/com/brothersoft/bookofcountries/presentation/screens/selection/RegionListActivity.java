@@ -12,6 +12,9 @@ import android.widget.ImageView;
 
 import com.brothersoft.bookofcountries.R;
 import com.brothersoft.bookofcountries.presentation.screens.country.group.CountryGroupActivity;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class RegionListActivity extends AppCompatActivity implements View.OnClickListener {
     private Button africa;
@@ -19,11 +22,14 @@ public class RegionListActivity extends AppCompatActivity implements View.OnClic
     private Button asia;
     private Button europe;
     private Button oceania;
+    private AdView mAdView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_region_list);
+        addBanner();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
         backButtonInit();
@@ -54,13 +60,23 @@ public class RegionListActivity extends AppCompatActivity implements View.OnClic
                 "region", region, region);
         startActivity(intent);
     }
-    public void backButtonInit(){
-        ImageView backImage=(ImageView) findViewById(R.id.backImage);
+
+    public void backButtonInit() {
+        ImageView backImage = (ImageView) findViewById(R.id.backImage);
         backImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
+    }
+
+    public void addBanner() {
+        MobileAds.initialize(this,
+                "ca-app-pub-7982947060816171~2298098731");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }
