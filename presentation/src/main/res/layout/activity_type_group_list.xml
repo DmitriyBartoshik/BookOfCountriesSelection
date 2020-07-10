@@ -3,47 +3,52 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-   >
+    android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/blue_effect">
+        android:background="@drawable/blue_effect"
+        android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             style="@style/Toolbar"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/backImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_back" />
+            <FrameLayout
+                android:id="@+id/back_button_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/toolbar_text"
-                style="@style/ToolbarTextStyle" />
+                <ImageView
+                    android:id="@+id/backImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_back" />
+
+                <TextView
+                    android:id="@+id/toolbar_text"
+                    style="@style/ToolbarTextStyle"
+                    android:layout_gravity="center" />
+            </FrameLayout>
         </android.support.v7.widget.Toolbar>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/group_List"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/blue_effect"
-            />
+            android:background="@drawable/blue_effect" />
     </LinearLayout>
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        ads:adSize="BANNER"
         android:layout_gravity="bottom"
-        ads:adUnitId="@string/main_book_block">
-    </com.google.android.gms.ads.AdView>
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/main_book_block" />
 
     <ProgressBar
         android:id="@+id/progress_bar"

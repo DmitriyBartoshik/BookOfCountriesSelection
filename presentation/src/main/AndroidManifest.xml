@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.brothersoft.bookofcountries">
+    package="com.brothersoft.bookofcountry">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,9 +12,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name=".app.App"
+        android:name="com.brothersoft.bookofcountry.app.App"
         android:allowBackup="true"
-        android:icon="@drawable/book_icon"
+        android:icon="@drawable/book_icon_main"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -29,19 +29,19 @@
             android:value="ca-app-pub-7982947060816171~2298098731" />
 
         <activity
-            android:name=".presentation.screens.country.list.CountryListActivity"
+            android:name="com.brothersoft.bookofcountry.presentation.screens.country.list.CountryListActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".presentation.screens.country.single.CountryActivity"
+            android:name="com.brothersoft.bookofcountry.presentation.screens.country.single.CountryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".presentation.screens.country.group.CountryGroupActivity"
+            android:name="com.brothersoft.bookofcountry.presentation.screens.country.group.CountryGroupActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".presentation.screens.country.capital.CapitalActivity"
+            android:name="com.brothersoft.bookofcountry.presentation.screens.country.capital.CapitalActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".presentation.screens.selection.SelectionActivity"
+            android:name="com.brothersoft.bookofcountry.presentation.screens.selection.SelectionActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,19 +50,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.screens.selection.RegionListActivity"
+            android:name="com.brothersoft.bookofcountry.presentation.screens.selection.RegionListActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".presentation.screens.selection.LanguageListActivity"
+            android:name="com.brothersoft.bookofcountry.presentation.screens.selection.LanguageListActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".presentation.screens.selection.CurrencyListActivity"
+            android:name="com.brothersoft.bookofcountry.presentation.screens.selection.CurrencyListActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".presentation.screens.selection.RegionalBlockActivity"
+            android:name="com.brothersoft.bookofcountry.presentation.screens.selection.RegionalBlockActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".presentation.screens.country.map.MapsActivity"
+            android:name="com.brothersoft.bookofcountry.presentation.screens.country.map.MapsActivity"
             android:label="@string/title_activity_maps" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -79,6 +79,9 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="841d3516f5cb6a02bf4dd4ad9a0771f9c75bb923" />
     </application>
 
 </manifest>

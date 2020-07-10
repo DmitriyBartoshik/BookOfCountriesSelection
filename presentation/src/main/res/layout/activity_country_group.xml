@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.brothersoft.bookofcountries.presentation.screens.country.group.CountryGroupViewModel" />
+            type="com.brothersoft.bookofcountry.presentation.screens.country.group.CountryGroupViewModel" />
     </data>
 
     <FrameLayout
@@ -26,7 +26,7 @@
 
                 <ImageView
                     android:id="@+id/backImage"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_back" />
 

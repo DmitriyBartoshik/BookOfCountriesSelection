@@ -12,7 +12,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.brothersoft.bookofcountries.presentation.screens.selection.SelectionActivity">
+    tools:context="com.brothersoft.bookofcountry.presentation.screens.selection.SelectionActivity">
 
 
     <android.support.v7.widget.Toolbar

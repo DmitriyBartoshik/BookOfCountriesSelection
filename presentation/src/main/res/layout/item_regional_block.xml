@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.brothersoft.bookofcountries.presentation.screens.country.single.items.block.RegionalBlockItemViewModel" />
+            type="com.brothersoft.bookofcountry.presentation.screens.country.single.items.block.RegionalBlockItemViewModel" />
     </data>
 
     <TextView
