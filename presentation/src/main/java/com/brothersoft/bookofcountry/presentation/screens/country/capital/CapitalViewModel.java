@@ -1,6 +1,6 @@
 package com.brothersoft.bookofcountry.presentation.screens.country.capital;
 
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableField;
 
 import com.brothersoft.bookofcountry.app.App;
 import com.brothersoft.bookofcountry.presentation.base.BaseViewModel;

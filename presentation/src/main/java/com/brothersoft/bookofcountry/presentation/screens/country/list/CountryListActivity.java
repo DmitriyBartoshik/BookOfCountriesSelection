@@ -1,12 +1,12 @@
 package com.brothersoft.bookofcountry.presentation.screens.country.list;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.support.annotation.Nullable;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.annotation.Nullable;
 import android.os.Bundle;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
+import androidx.core.view.MenuItemCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;

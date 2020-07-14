@@ -1,6 +1,6 @@
 package com.brothersoft.bookofcountry.presentation.screens.country.single.items.block;
 
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableField;
 
 import com.brothersoft.bookofcountry.presentation.base.recycler.BaseItemViewModel;
 import com.brothersoft.domain.entity.country.RegionalBlock;

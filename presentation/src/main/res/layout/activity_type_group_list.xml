@@ -11,7 +11,7 @@
         android:background="@drawable/blue_effect"
         android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             style="@style/Toolbar"
             android:layout_height="wrap_content">
@@ -33,9 +33,9 @@
                     style="@style/ToolbarTextStyle"
                     android:layout_gravity="center" />
             </FrameLayout>
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/group_List"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

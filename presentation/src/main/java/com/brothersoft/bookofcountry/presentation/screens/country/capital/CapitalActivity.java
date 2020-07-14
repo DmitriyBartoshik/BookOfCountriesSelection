@@ -1,10 +1,10 @@
 package com.brothersoft.bookofcountry.presentation.screens.country.capital;
 
 import android.app.Activity;
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.brothersoft.bookofcountry.R;
 import com.brothersoft.bookofcountry.databinding.ActivityCapitalBinding;

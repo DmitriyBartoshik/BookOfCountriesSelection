@@ -15,7 +15,7 @@
     tools:context="com.brothersoft.bookofcountry.presentation.screens.selection.SelectionActivity">
 
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar1"
         style="@style/Toolbar"
         android:layout_height="wrap_content">
@@ -24,7 +24,7 @@
            style="@style/ToolbarTextStyle"
             android:text="Book of countries"/>
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
 
     <Button

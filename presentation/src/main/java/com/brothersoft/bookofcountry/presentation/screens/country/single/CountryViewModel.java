@@ -1,7 +1,7 @@
 package com.brothersoft.bookofcountry.presentation.screens.country.single;
 
-import android.databinding.ObservableBoolean;
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableBoolean;
+import androidx.databinding.ObservableField;
 
 import com.brothersoft.bookofcountry.app.App;
 import com.brothersoft.bookofcountry.presentation.base.BaseViewModel;

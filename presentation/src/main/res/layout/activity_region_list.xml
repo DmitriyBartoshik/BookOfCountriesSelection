@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar1"
             style="@style/Toolbar"
             android:layout_height="wrap_content">
@@ -34,7 +34,7 @@
                     android:layout_gravity="center"
                     android:text="Book of countries" />
             </FrameLayout>
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
         <Button
             android:id="@+id/region_africa"

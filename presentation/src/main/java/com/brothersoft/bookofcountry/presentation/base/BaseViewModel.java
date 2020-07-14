@@ -1,7 +1,7 @@
 package com.brothersoft.bookofcountry.presentation.base;
 
-import android.arch.lifecycle.ViewModel;
-import android.databinding.ObservableBoolean;
+import androidx.lifecycle.ViewModel;
+import androidx.databinding.ObservableBoolean;
 
 import com.brothersoft.domain.entity.DomainModel;
 

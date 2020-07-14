@@ -19,7 +19,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         Fabric.with(this, new Crashlytics());
-
+// add new component
         appComponent = DaggerAppComponent
                 .builder()
                 .appModule(new AppModule(this))

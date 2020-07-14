@@ -65,4 +65,5 @@ public class CapitalWeatherResponse implements DataModel {
     public int getCod() {
         return cod;
     }
+
 }

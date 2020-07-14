@@ -2,7 +2,7 @@ package com.brothersoft.bookofcountry.presentation.screens.country.map;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 import android.os.Bundle;
 
 import com.brothersoft.bookofcountry.R;

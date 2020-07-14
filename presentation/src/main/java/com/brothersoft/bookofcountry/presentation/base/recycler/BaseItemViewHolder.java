@@ -1,10 +1,10 @@
 package com.brothersoft.bookofcountry.presentation.base.recycler;
 
-import android.databinding.ViewDataBinding;
-import android.support.v7.widget.RecyclerView;
+import androidx.databinding.ViewDataBinding;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.brothersoft.domain.entity.DomainModel;
 import com.brothersoft.bookofcountry.BR;
+import com.brothersoft.domain.entity.DomainModel;
 
     public abstract class BaseItemViewHolder<
             Entity extends DomainModel,

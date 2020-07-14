@@ -1,6 +1,6 @@
 package com.brothersoft.bookofcountry.presentation.screens.country.single.items.language;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.ViewGroup;
 
 import com.brothersoft.bookofcountry.presentation.base.recycler.BaseItemViewHolder;

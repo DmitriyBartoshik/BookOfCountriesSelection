@@ -19,7 +19,7 @@
             android:orientation="vertical"
            >
 
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 style="@style/Toolbar"
                 android:layout_height="wrap_content">
@@ -45,9 +45,9 @@
                         android:gravity="center"
                         android:text="@{viewModel.field}" />
                 </LinearLayout>
-            </android.support.v7.widget.Toolbar>
+            </androidx.appcompat.widget.Toolbar>
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/country_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
